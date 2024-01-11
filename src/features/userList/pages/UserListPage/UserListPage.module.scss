@@ -1,0 +1,14 @@
+.UserListPage {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+
+}
+
+.userList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}

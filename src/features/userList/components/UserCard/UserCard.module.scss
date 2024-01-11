@@ -1,0 +1,25 @@
+.UserCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 305px;
+  height: 263px;
+  box-shadow: 0px 0.9960451126098633px 3.984180450439453px 0px #33333326;
+  border-radius: 10px;
+  gap: 16px;
+
+
+}
+
+.avatar {
+  width: 124px;
+  height: 124px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 20px;
+}
+
