@@ -8,8 +8,15 @@
   box-shadow: 0px 0.9960451126098633px 3.984180450439453px 0px #33333326;
   border-radius: 10px;
   gap: 16px;
+  text-decoration: none !important;
+  color: #151317;
+  background-color: #fff;
 
+  transition: transform 200ms;
 
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .avatar {
@@ -17,9 +24,11 @@
   height: 124px;
   object-fit: cover;
   border-radius: 50%;
+  background-color: #666;
 }
 
 .name {
   font-size: 20px;
+
 }
 

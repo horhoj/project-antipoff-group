@@ -1,0 +1,9 @@
+.HeaderBack {
+  position: absolute;
+  left: 80px;
+  top: 32px;
+  @media (max-width: 800px) {
+    left: 27px;
+    top: 23px;
+  }
+}

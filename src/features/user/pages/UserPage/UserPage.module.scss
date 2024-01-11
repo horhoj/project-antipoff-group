@@ -1,0 +1,95 @@
+.UserPage {
+}
+
+.bigTitle {
+  margin-top: 64px;
+  font-size: 64px;
+  font-weight: 400;
+  color: #fff;
+  max-width: 846px;
+  @media (max-width: 1100px) {
+    font-size: 38px;
+  }
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 400;
+  color: #ddd;
+  max-width: 846px;
+  @media (max-width: 1100px) {
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+.header {
+  position: relative;
+  background-color: #512689;
+  min-height: 265px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px 16px 16px;
+  justify-content: center;
+  @media (max-width: 1100px) {
+    //min-height: 432px;
+    padding: 0 16px 64px 16px;
+
+  }
+}
+
+.avatar {
+  width: 187px;
+  height: 187px;
+  border-radius: 50%;
+  background-color: #666;
+}
+
+.HeaderDataWrap {
+  display: flex;
+  gap: 32px;
+  height: 100%;
+  @media (max-width: 1100px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+.textWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 630px;
+  color: #151317;
+}
+
+.contacts {
+
+}
+
+.contactsItem {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #151317;
+}
+
+.dataBlock {
+  display: flex;
+  flex-direction: row;
+  gap: 130px;
+  padding: 50px;
+  justify-content: center;
+  @media (max-width: 900px) {
+    flex-direction: column-reverse;
+    //align-items: center;
+    //justify-content: center;
+    gap: 32px;
+    padding: 32px 16px;
+  }
+}

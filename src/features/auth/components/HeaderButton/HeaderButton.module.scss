@@ -1,0 +1,52 @@
+.HeaderButton {
+  width: 80px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #F8F8F8;
+  color: #F8F8F8;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+
+  transition: transform 200ms;
+
+  &:hover {
+    transform: scale(1.5);
+  }
+
+  @media (max-width: 600px) {
+    width: 30px;
+    height: 30px;
+    border: none;
+
+
+    &:hover {
+      background-color: #512689;
+    }
+  }
+
+
+
+
+}
+
+.text {
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+
+.icon {
+  display: none;
+  @media (max-width: 600px) {
+    display: block;
+  }
+}
+
+.wrap {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  text-decoration: none;
+}

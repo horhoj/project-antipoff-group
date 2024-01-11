@@ -1,0 +1,9 @@
+.HeaderLogout {
+  position: absolute;
+  right: 80px;
+  top: 32px;
+  @media (max-width: 800px) {
+    right: 27px;
+    top: 23px;
+  }
+}

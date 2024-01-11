@@ -1,4 +1,4 @@
-import { useSearchParams } from 'react-router-dom';
+import { generatePath, useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import styles from './UserListPage.module.scss';
 import { getSearchParams } from '~/features/userList/pages/UserListPage/userListPage.helpers';
@@ -6,6 +6,8 @@ import { useAppDispatch, useAppSelector } from '~/store/hooks';
 import { userListSlice } from '~/features/userList/store/userListSlice';
 import { Paginator } from '~/ui/Paginator';
 import { UserCard } from '~/features/userList/components/UserCard';
+import { ROUTES } from '~/router/routePaths';
+import { HeaderLogout } from '~/features/auth/components/HeaderLogout';
 
 export const UserListPage = () => {
   const dispatch = useAppDispatch();
@@ -26,9 +28,22 @@ export const UserListPage = () => {
 
   return (
     <div className={styles.UserListPage}>
+      <div className={styles.header}>
+        <HeaderLogout />
+        <div className={styles.bigTitle}>Наша команда</div>
+        <div className={styles.title}>
+          Это опытные специалисты, хорошо разбирающиеся во всех задачах, которые
+          ложатся на их плечи, и умеющие находить выход из любых, даже самых
+          сложных ситуаций.
+        </div>
+      </div>
       <div className={styles.userList}>
         {fetchUserListRequest.data?.data.map((user) => (
-          <UserCard userData={user} key={user.id} />
+          <UserCard
+            userData={user}
+            key={user.id}
+            link={generatePath(ROUTES.USER, { id: user.id.toString() })}
+          />
         ))}
       </div>
 
@@ -39,7 +54,6 @@ export const UserListPage = () => {
           maxPage={fetchUserListRequest.data.total_pages}
         />
       )}
-      {/*<DevView data={fetchUserListRequest} />*/}
     </div>
   );
 };

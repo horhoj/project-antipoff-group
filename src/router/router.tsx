@@ -1,28 +1,17 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { getRoutePath } from './helpers';
-import { routeList } from './routeList';
-import { getUUID } from '~/utils/getUUID';
-
-const MAIN_UNIQ_KEY = getUUID();
+import { ROUTES } from '~/router/routePaths';
+import { UserListPage } from '~/features/userList/pages/UserListPage';
+import { UserPage } from '~/features/user/pages/UserPage';
+import { Page404 } from '~/features/error404/pages/Error404Page';
 
 export const Router = () => {
   return (
     <>
       <Routes>
-        <Route
-          path="/"
-          element={<Navigate to={getRoutePath('userList')} />}
-          key={MAIN_UNIQ_KEY}
-        />
-        {routeList.map((route) => {
-          return (
-            <Route
-              path={route.path}
-              key={route.id}
-              element={<route.component />}
-            />
-          );
-        })}
+        <Route path={ROUTES.ROOT} element={<Navigate to={ROUTES.USERS} />} />
+        <Route path={ROUTES.USERS} element={<UserListPage />} />
+        <Route path={ROUTES.USER} element={<UserPage />} />
+        <Route path={'*'} element={<Page404 />} />
       </Routes>
     </>
   );
