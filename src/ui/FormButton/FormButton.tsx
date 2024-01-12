@@ -1,17 +1,17 @@
 import { ButtonHTMLAttributes, forwardRef } from 'react';
 import classNames from 'classnames';
-import styles from './Button.module.scss';
+import styles from './FormButton.module.scss';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface FormButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: JSX.Element | string;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export const FormButton = forwardRef<HTMLButtonElement, FormButtonProps>(
   ({ children, className, ...props }, ref) => {
     return (
       <button
         {...props}
-        className={classNames(styles.Button, className)}
+        className={classNames(styles.FormButton, className)}
         ref={ref}
       >
         {children}
@@ -20,4 +20,4 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   },
 );
 
-Button.displayName = 'Button';
+FormButton.displayName = 'Button';

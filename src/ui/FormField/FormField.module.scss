@@ -1,0 +1,19 @@
+.FormField {
+  width: 100%;
+}
+
+.label {
+  font-size: 16px;
+  display: flex;
+}
+
+.children {
+  margin-top: 8px;
+}
+
+.error {
+  margin-top: 4px;
+  font-size: 10px;
+  font-weight: 400;
+  color: #FF6161;  ;
+}

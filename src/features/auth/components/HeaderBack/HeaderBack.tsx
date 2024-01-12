@@ -3,17 +3,16 @@ import { HeaderButton } from '~/features/auth/components/HeaderButton';
 import { HeaderBackIcon } from '~/assets/icons';
 
 interface HeaderBackProps {
-  link: string;
+  onClick: () => void;
 }
 
-export const HeaderBack = ({ link }: HeaderBackProps) => {
+export const HeaderBack = ({ onClick }: HeaderBackProps) => {
   return (
     <div className={styles.HeaderBack}>
       <HeaderButton
         text={'Назад'}
         icon={<HeaderBackIcon />}
-        isLink={true}
-        link={link}
+        onClick={onClick}
       />
     </div>
   );

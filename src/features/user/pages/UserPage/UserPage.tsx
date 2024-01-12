@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import styles from './UserPage.module.scss';
 import { getParams } from '~/features/user/pages/UserPage/UserPage.helpers';
@@ -6,12 +6,12 @@ import { useAppDispatch, useAppSelector } from '~/store/hooks';
 import { userSlice } from '~/features/user/store/userSlice';
 import { HeaderLogout } from '~/features/auth/components/HeaderLogout';
 import { HeaderBack } from '~/features/auth/components/HeaderBack';
-import { ROUTES } from '~/router/routePaths';
 import { EmailIcon, TelephoneIcon } from '~/assets/icons';
 
 export const UserPage = () => {
   const dispatch = useAppDispatch();
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const { id: currentId } = getParams(id);
@@ -31,10 +31,14 @@ export const UserPage = () => {
     (state) => state.user.fetchUserRequest,
   );
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className={styles.UserPage}>
       <div className={styles.header}>
-        <HeaderBack link={ROUTES.USERS} />
+        <HeaderBack onClick={handleBack} />
         <HeaderLogout />
         {fetchUserRequest.data && (
           <div className={styles.HeaderDataWrap}>

@@ -7,6 +7,7 @@ interface HeaderButtonProps {
   icon: ReactNode;
   isLink?: boolean;
   link?: string;
+  onClick?: () => void;
 }
 
 export const HeaderButton = ({
@@ -14,6 +15,7 @@ export const HeaderButton = ({
   icon,
   isLink,
   link = '#',
+  onClick,
 }: HeaderButtonProps) => {
   const content = (
     <div className={styles.HeaderButton}>
@@ -23,10 +25,16 @@ export const HeaderButton = ({
   );
 
   return isLink ? (
-    <Link to={link} className={styles.wrap}>
+    <Link
+      to={link}
+      className={styles.wrap}
+      onClick={() => onClick && onClick()}
+    >
       {content}
     </Link>
   ) : (
-    <button className={styles.wrap}>{content}</button>
+    <button className={styles.wrap} onClick={() => onClick && onClick()}>
+      {content}
+    </button>
   );
 };
