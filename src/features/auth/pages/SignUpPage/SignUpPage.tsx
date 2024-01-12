@@ -15,10 +15,10 @@ interface InitialValues {
 }
 
 const initialValues: InitialValues = {
-  name: 'aaa',
-  email: 'a@a',
-  password: '12345678',
-  passwordConfirm: '12345678',
+  name: '',
+  email: '',
+  password: '',
+  passwordConfirm: '',
 };
 
 const VALIDATION_IS_EMPTY_MSG = 'Не должно быть пустым';
