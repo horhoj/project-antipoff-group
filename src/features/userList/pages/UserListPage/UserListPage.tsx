@@ -1,5 +1,5 @@
 import { generatePath, useSearchParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './UserListPage.module.scss';
 import { getSearchParams } from '~/features/userList/pages/UserListPage/userListPage.helpers';
 import { useAppDispatch, useAppSelector } from '~/store/hooks';
@@ -9,10 +9,16 @@ import { UserCard } from '~/features/userList/components/UserCard';
 import { ROUTES } from '~/router/routePaths';
 import { HeaderLogout } from '~/features/auth/components/HeaderLogout';
 
+const LS_LIKE_DATA_KEY = 'LS_LIKE_DATA_KEY';
+
 export const UserListPage = () => {
   const dispatch = useAppDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
   const { page } = getSearchParams(searchParams);
+  const [likeData, setLikeData] = useState<Record<number, boolean>>(() => {
+    const data = localStorage.getItem(LS_LIKE_DATA_KEY) ?? '{}';
+    return JSON.parse(data);
+  });
 
   useEffect(() => {
     dispatch(userListSlice.thunks.fetchUserListThunk({ page }));
@@ -24,6 +30,14 @@ export const UserListPage = () => {
 
   const handleChangePage = (page: number) => {
     setSearchParams({ page: page.toString() });
+  };
+
+  const handleLikeClk = (id: number) => {
+    setLikeData((prev) => {
+      const newLikeData = { ...prev, [id]: !prev[id] };
+      localStorage.setItem(LS_LIKE_DATA_KEY, JSON.stringify(newLikeData));
+      return newLikeData;
+    });
   };
 
   return (
@@ -43,6 +57,8 @@ export const UserListPage = () => {
             userData={user}
             key={user.id}
             link={generatePath(ROUTES.USER, { id: user.id.toString() })}
+            isLike={Boolean(likeData[user.id])}
+            onLikeClick={() => handleLikeClk(user.id)}
           />
         ))}
       </div>
